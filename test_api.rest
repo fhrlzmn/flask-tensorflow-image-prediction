@@ -1,0 +1,13 @@
+### GET Predict
+GET http://127.0.0.1:5000/api/predict/ HTTP/1.1
+
+### POST Predict
+POST http://127.0.0.1:5000/api/predict/ HTTP/1.1
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="cat_predict.jpg"
+Content-Type: image/jpeg
+
+< ./cat_predict.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--

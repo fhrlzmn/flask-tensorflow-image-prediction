@@ -1,2 +1,2 @@
-0 Cat
-1 Dog
+0 Happy
+1 Sad

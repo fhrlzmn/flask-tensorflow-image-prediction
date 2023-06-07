@@ -8,7 +8,7 @@ def predict_image(image_path):
     np.set_printoptions(suppress=True)
 
     # Load the model
-    model = load_model(os.path.abspath("app/keras_model/keras_model.h5"), compile=False)
+    model = load_model(os.path.abspath("app/keras_model/model_4_v3.h5"), compile=False)
 
     # Load the labels
     class_names = open(os.path.abspath("app/keras_model/labels.txt"), "r").readlines()
@@ -16,13 +16,13 @@ def predict_image(image_path):
     # Create the array of the right shape to feed into the keras model
     # The 'length' or number of images you can put into the array is
     # determined by the first position in the shape tuple, in this case 1
-    data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
+    data = np.ndarray(shape=(1, 48, 48), dtype=np.float32)
 
     # Replace this with the path to your image
-    image = Image.open(image_path).convert("RGB")
+    image = Image.open(image_path).convert("L")
 
     # resizing the image to be at least 224x224 and then cropping from the center
-    size = (224, 224)
+    size = (48, 48)
     image = ImageOps.fit(image, size, Image.Resampling.LANCZOS)
 
     # turn the image into a numpy array

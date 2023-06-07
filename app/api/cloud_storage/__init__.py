@@ -24,7 +24,3 @@ def upload_file(file_path, user_id):
     authenticated_url = blob.generate_signed_url(expiration=expiration)
 
     return authenticated_url
-
-
-url = upload_file(os.path.abspath("cat_predict.jpg"), "uQqLNwNlaNXqey7e165HCRjzSvF3")
-print(url)

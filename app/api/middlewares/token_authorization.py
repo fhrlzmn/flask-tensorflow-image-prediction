@@ -8,9 +8,13 @@ def verify_token_middleware(func):
     @wraps(app)
     def wrapper(*args, **kwargs):
         authorization_header = request.headers.get("Authorization")
-        id_token = authorization_header.split(" ")[1]
 
-        user_id = verify_token(id_token)
+        if not authorization_header:
+            id_token = None
+            user_id = None
+        else:
+            id_token = authorization_header.split(" ")[1]
+            user_id = verify_token(id_token)
 
         kwargs["user_id"] = user_id
 

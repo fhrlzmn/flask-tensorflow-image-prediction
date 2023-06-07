@@ -6,3 +6,4 @@ keras
 pillow
 numpy
 firebase-admin
+google-cloud-storage

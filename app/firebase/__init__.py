@@ -1,7 +1,7 @@
 import firebase_admin
-from firebase_admin import auth
+from firebase_admin import auth, storage
 
-defaul_app = firebase_admin.initialize_app()
+default_app = firebase_admin.initialize_app()
 
 
 def verify_token(id_token):

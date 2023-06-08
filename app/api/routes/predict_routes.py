@@ -17,7 +17,7 @@ def allowed_file(filename):
 predict_routes = Blueprint("predict_routes", __name__)
 
 
-@predict_routes.route("/", methods=["GET", "POST"])
+@predict_routes.route("/", methods=["GET", "POST"]) # type: ignore
 @verify_token_middleware
 def predict(user_id):
     if user_id is None:
@@ -26,10 +26,10 @@ def predict(user_id):
         if request.method == "GET":
             return jsonify({"message": f"Hello, {user_id}"}), 200
         elif request.method == "POST":
-            if "file" not in request.files:
+            if "image" not in request.files:
                 return jsonify({"message": "No file part in the request"}), 400
 
-            file = request.files["file"]
+            file = request.files["image"]
 
             if file.filename == "":
                 return jsonify({"message": "No file selected for uploading"}), 400
@@ -39,7 +39,7 @@ def predict(user_id):
                     app.config["UPLOAD_FOLDER"],
                     datetime.datetime.now().strftime("%Y%m%d%H%M%S")
                     + "_"
-                    + secure_filename(file.filename),
+                    + secure_filename(file.filename), # type: ignore
                 )
                 file.save(file_path)
                 result = predict_image(file_path)

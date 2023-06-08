@@ -45,7 +45,7 @@ def predict_image(image_path):
     # print("Confidence Score:", confidence_score)
 
     result = {
-        "class_name": class_name[2:].replace("\n", ""),
+        "mood": class_name[2:].replace("\n", ""),
         "confidence_score": float(confidence_score),
     }
 

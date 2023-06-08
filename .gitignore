@@ -15,6 +15,3 @@ venv.bak/
 # Flask stuff:
 instance/
 .webassets-cache
-
-# ML Model (90MB)
-app/keras_model/model_4_v3.h5
